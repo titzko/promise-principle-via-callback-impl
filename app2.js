@@ -3,7 +3,6 @@
 function add(getX, getY, cb) {
 	var x, y;
 	getX(function (xVal) {
-		console.log("xval" + xVal);
 		x = xVal;
 		// both are ready?
 		if (y != undefined) {
@@ -12,7 +11,6 @@ function add(getX, getY, cb) {
 	});
 	getY(function (yVal) {
 		y = yVal;
-		console.log("yval" + yVal);
 
 		// both are ready?
 		if (x != undefined) {
@@ -21,9 +19,7 @@ function add(getX, getY, cb) {
 	});
 }
 function fetchX(cb) {
-	console.log("hi");
 	cb(4);
-	console.log("ho");
 }
 
 function fetchY(cb) {
@@ -35,6 +31,6 @@ function sum(sumVal) {
 }
 
 // `fetchX()` and `fetchY()` are sync or async functions
-add(fetchX, fetchY, sum);
-
-//callbacks suck
+add(fetchX, fetchY, function (sum) {
+	console.log(sum); // that was easy, huh?
+});
