@@ -26,10 +26,6 @@ function fetchY(cb) {
 	cb(2);
 }
 
-function sum(sumVal) {
-	console.log(sumVal);
-}
-
 // `fetchX()` and `fetchY()` are sync or async functions
 add(fetchX, fetchY, function (sum) {
 	console.log(sum); // that was easy, huh?
